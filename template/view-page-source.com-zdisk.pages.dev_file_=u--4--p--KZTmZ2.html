@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Varela Round' rel='stylesheet'>
+    <title>zdisk</title>
+    
+    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-VQ9GFG97S6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VQ9GFG97S6');
+</script>
+   
+    
+    
+    
+</head>
+
+<body>
+    <style>
+        html {
+            background-color: rgb(48, 47, 47);
+            color: rgb(234, 232, 232);
+            text-align: center;
+            font-family: 'Varela Round';
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .title {
+            padding-top: 10px;
+            max-width: 400px;
+            overflow: scroll;
+            width: 100%;
+            font-size: 20px;
+            white-space: nowrap;
+        }
+
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+        }
+        .video-wrap video {
+            border-radius: 10px;
+            display: none;
+
+        }
+
+        .player {
+            width: 100%;
+            min-width: 350px;
+            max-width: 400px;
+            height: 200px;
+            background-color: rgba(0, 0, 0, 0.196);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            margin: 40px;
+
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border: 2px solid black;
+        }
+
+        .hidden {
+            width: 100%;
+            min-width: 350px;
+            max-width: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .icon>svg {
+            width: 80px;
+            height: 80px;
+            fill: rgba(178, 182, 185, 0.582);
+        }
+
+        .info {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px;
+        }
+
+        .top {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .tab-down {
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: rgba(240, 248, 255, 0.119);
+            color: #ffffffd8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .top svg {
+            width: 20px;
+            height: 20px;
+            fill: #fff;
+            margin-left: 10px;
+        }
+
+        .tab {
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: rgba(240, 248, 255, 0.119);
+            color: #ffffffd8;
+            cursor: pointer;
+        }
+
+        .btn {
+            border: 1px solid rgb(255, 255, 255);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .telegram {
+            margin-top: 30px
+        }
+
+        .dirdown {
+            text-decoration: none;
+        }
+
+        .playable {
+            font-size: 20px;
+        }
+
+        .playhead {
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        .playbtn {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+
+        .play .btn {
+            flex-basis: calc(50% - 10px);
+            margin-bottom: 10px;
+            width: 100%;
+            color: black;
+        }
+
+        .blogads {
+            padding: 15px;
+            border-radius: 20px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .blogads iframe {
+            background-color: white;
+        }
+    </style>
+    <div class="wrapper">
+        <div class="content">
+            <div class="main">
+                <div class="title" id="title">Loading...</div>
+                
+                <div class="telegram">
+                    
+                    <div class="tgbot btn" id="tgfile">Telegram File 📂</div>
+                    <div class="tgbot btn" id="tgweb">Open File In Telegram Web 🌐</div>
+                </div>
+                <div class="downloadable">
+                    <a id="dirdown" style="text-decoration: none;color:white">
+                        <div class="down btn dirdown">Direct Download 📩</div>
+                    </a>
+                    <div class="down btn 1dmdown" id="dmdown">Download With 1DM 🚀</div>
+                </div>
+
+                <div class="playable">
+                    <div class="playhead"> Play Using </div>
+                    <div class="playbtn">
+                        <div class="play btn mxplay" id="mxplay">Mxplayer</div>
+                        <div class="play btn vlplay" id="vlplay">Vlc Player</div>
+                    </div>
+                </div>
+                
+            <!-- AdOto - Ad Display Code -->
+<div id="adm-container-5879"></div><script data-cfasync="false" async type="text/javascript" src="//adoto.net/dashboard/display/items.php?5879&1085&300&250&4&0&0"></script><script data-cfasync="false" type="text/javascript" src="//adoto.net/dashboard/display/serve.js"></script>
+            <!-- AdOto - Ad Display Code -->
+                
+            <br><br><a href="tg://resolve?domain=zk_bots">Report Errors @Zk_Bots</a>
+        </div>
+    </div>
+    <script>
+        loc = window.location + ""
+        paramv = loc.split("?=")
+        paramv = paramv.slice(-1)
+        paramv = paramv[0]
+        tfuid = paramv.split("--").slice(-1)[0]
+        var fuid = decrypt(tfuid)
+        paramv = paramv.replace(tfuid, fuid)
+
+        domains = ["d.ishorty.pro"]
+        const index = Random(1)
+        var secure = ""
+        if (index == 0) { secure = "s" }
+        base_url = `http${secure}://${domains[index]}/`
+        const type = paramv.split("--")[0]
+
+        var file
+
+        var tgfileBtn = cget("#tgfile")
+        tgfileBtn.addEventListener("click", function () { window.location = "tg://resolve?domain=files_giver_bot&start=" + paramv })
+
+        if (type != "m") {
+            startUp()
+        } else { assignbtns("", fuid, 1749696923) }
+
+        async function startUp() {
+            res = await fetch(`https://zkbots.onrender.com/getfile?uid=` + fuid)
+            file = await res.json()
+            console.log(file)
+            var fileName = file["fn"]
+            var messId = file["mid"]
+            var chatId = file["cid"].toString().replace("-100", "")
+            var drive = file.drive
+            assignbtns(fileName, messId, chatId, drive)
+        }
+
+
+        function sizeMaker(size) {
+            var i = size == 0 ? 0 : Math.floor(Math.log(size) / Math.log(1024));
+            return (size / Math.pow(1024, i)).toFixed(2) * 1 + ' ' + ['B', 'kB', 'MB', 'GB', 'TB'][i];
+        }
+
+        function cget(className) {
+            var elem = document.querySelector(className)
+            return elem
+        }
+
+        function getDriveLink(id, fileName) {
+            cfdomain = [
+                "zdisk-down.zdisk0001.workers.dev",
+                "zdisk-down.zdisk0002.workers.dev",
+                "zdisk-down.zdisk0003.workers.dev",
+                "zdisk-down.knowstuffweb.workers.dev",
+                "zdisk-down.m-s-b.workers.dev",
+                "zdisk-down.mdiskbot.workers.dev",
+                "zdisk-down.zdsik001.workers.dev"
+             ]
+            cfdomain = cfdomain[Random(7)]
+            //id = encrypt(id)
+            return `https://${cfdomain}/${id}/${encodeURI(fileName)}`
+        }
+        function assignbtns(fileName, messId, chatId, drive) {
+            downloadLink = base_url + chatId + "/" + messId
+            if (drive) { downloadLink = getDriveLink(drive, fileName) }
+            var namedisplay = cget("#title")
+            namedisplay.innerHTML = fileName
+
+            var tgfileBtn = cget("#tgfile")
+            tgfileBtn.addEventListener("click", function () { window.location = "tg://resolve?domain=files_giver_bot&start=" + paramv })
+            var tgfileBtn = cget("#tgweb")
+            tgfileBtn.addEventListener("click", function () { window.location = "https://web.telegram.org/k/#?tgaddr=tg%3A%2F%2Fresolve%3Fdomain%3Dfiles_giver_bot%26start%3D" + paramv })
+
+            var mxplaybtn = cget("#mxplay")
+            mxplaybtn.addEventListener("click", function () { window.location = (`intent:${downloadLink}#Intent;action=com.mxtech.videoplayer.ad.playback_local;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.mxtech.videoplayer.ad;b.decode_mode=2;S.mx_stream_url=${downloadLink};S.download_url=${downloadLink}S.title=${fileName};end`) })
+
+            var vlcbtn = cget("#vlplay")
+            vlcbtn.addEventListener("click", function () { window.location = (`vlc://${downloadLink}`) })
+
+            var downloadBtn = cget("#dirdown")
+            downloadBtn.href = downloadLink
+            var down1 = cget("#dmdown")
+            down1.addEventListener("click", function () { window.location = (`intent:${downloadLink}#Intent;action=android.intent.action.VIEW;package=idm.internet.download.manager;end`) })
+
+            var tgfileBtn = cget("#tgfile")
+            tgfileBtn.addEventListener("click", function () { window.location = "https://telegram.dog/files_giver_bot?start=" + paramv })
+
+
+            // var siz = cget('#siz')
+            // siz.innerHTML = sizeMaker(file["siz"])
+        }
+
+        function load_player() {
+            console.log("click")
+            var messId = file["mid"]
+            var chatId = file["cid"].toString().replace("-100", "")
+            var player = cget("#streaming")
+            player.innerHTML = `<source src="${base_url}${chatId}/${messId}" type="video/mp4">`
+            player.style.display = "block"
+            cget(".hidden").style = "display:block;padding:0px"
+
+        }
+        function Random(max) {
+            return Math.floor(Math.random() * max);
+        }
+        function encrypt(text) {
+            var encryptedText = "";
+            for (var i = 0; i < text.length; i++) {
+                var charCode = text.charCodeAt(i);
+                if (charCode >= 97 && charCode <= 122) { // lowercase letters
+                    encryptedText += String.fromCharCode(((charCode - 97 + 2) % 26) + 97);
+                } else if (charCode >= 65 && charCode <= 90) { // uppercase letters
+                    encryptedText += String.fromCharCode(((charCode - 65 + 2) % 26) + 65);
+                } else {
+                    encryptedText += text.charAt(i); // non-alphabetic characters
+                }
+            }
+            return encryptedText;
+        }
+        function decrypt(encryptedText) {
+            var decryptedText = "";
+            for (var i = 0; i < encryptedText.length; i++) {
+                var charCode = encryptedText.charCodeAt(i);
+                if (charCode >= 97 && charCode <= 122) { // lowercase letters
+                    decryptedText += String.fromCharCode(((charCode - 97 - 2 + 26) % 26) + 97);
+                } else if (charCode >= 65 && charCode <= 90) { // uppercase letters
+                    decryptedText += String.fromCharCode(((charCode - 65 - 2 + 26) % 26) + 65);
+                } else {
+                    decryptedText += encryptedText.charAt(i); // non-alphabetic characters
+                }
+            }
+            return decryptedText;
+        }
+    </script>
+</body>
+
+</html>
